@@ -1,0 +1,32 @@
+{
+  "name": "realtime-collabaretion-tool",
+  "version": "1.0.0",
+  "description": "A web-based application that enables multiple users to collaboratively create, edit, and manage documents in real time. Built with Node.js, Express, Socket.IO, MongoDB, and React, this tool supports user authentication, document sharing, live editing, version history, and user roles.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lakshanchamidu/Realtime-Collabaretion-Tool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lakshanchamidu/Realtime-Collabaretion-Tool/issues"
+  },
+  "homepage": "https://github.com/lakshanchamidu/Realtime-Collabaretion-Tool#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.0",
+    "morgan": "^1.10.1",
+    "socket.io": "^4.8.1"
+  }
+}
