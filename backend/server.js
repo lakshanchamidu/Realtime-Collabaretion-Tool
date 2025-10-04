@@ -10,8 +10,9 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: ( process.env.CORS_Origin || '*' ).split(','),
+        origin: ( process.env.CORS_Origin || 'http://localhost:3000' ).split(','),
         credentials: true,
+        methods: ["GET", "POST"]
     }
 });
 

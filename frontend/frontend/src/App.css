@@ -1,38 +1,288 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #1a1a1a;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Login Screen Styles */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-container h1 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.login-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  min-width: 300px;
+}
+
+.name-input,
+.document-input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.name-input::placeholder,
+.document-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.join-btn,
+.new-doc-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.join-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.join-btn:hover {
+  background-color: #45a049;
+}
+
+.new-doc-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.new-doc-btn:hover {
+  background-color: #1976D2;
+}
+
+/* Main App Styles */
+.app-header {
+  background-color: #2d2d2d;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.document-info {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.app-main {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Code Editor Styles */
+.code-editor-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-header {
+  background-color: #2d2d2d;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+}
+
+.language-selector {
+  padding: 8px 12px;
+  background-color: #3d3d3d;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.connected-users {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.user-indicator {
+  background-color: #4CAF50;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.editor-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-mirror-editor {
+  flex: 1;
+  font-size: 14px;
+  min-height: 300px;
+}
+
+/* Debug Panel Styles */
+.debug-panel {
+  height: 200px;
+  background-color: #1e1e1e;
+  border-top: 1px solid #444;
+  display: flex;
+  flex-direction: column;
+}
+
+.debug-panel-header {
+  background-color: #2d2d2d;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+}
+
+.debug-panel-header h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.clear-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.clear-btn:hover {
+  background-color: #cc3333;
+}
+
+.debug-output {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+}
+
+.debug-message {
+  margin-bottom: 5px;
+  display: flex;
+  gap: 10px;
+}
+
+.debug-message.info {
+  color: #87CEEB;
+}
+
+.debug-message.success {
+  color: #90EE90;
+}
+
+.debug-message.warning {
+  color: #FFD700;
+}
+
+.debug-message.error {
+  color: #FF6B6B;
+}
+
+.timestamp {
+  color: #888;
+  font-size: 0.8rem;
+  min-width: 70px;
+}
+
+.message {
+  flex: 1;
+}
+
+/* Button Styles */
+.run-btn, .debug-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 10px;
+}
+
+.run-btn:hover {
+  background-color: #45a049;
+}
+
+.run-btn:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+.debug-btn {
+  background-color: #2196F3;
+}
+
+.debug-btn:hover {
+  background-color: #1976D2;
+}
+
+.connection-status {
+  margin-left: 15px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.connection-status.connected {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+}
+
+.connection-status.disconnected {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #f44336;
 }
